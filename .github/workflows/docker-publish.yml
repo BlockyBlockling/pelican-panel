@@ -1,13 +1,9 @@
 name: Docker
 
-
 on:
   push:
-    branches:
-      - main
-  release:
-    types:
-      - published
+    tags:
+      - "v*"
 
 jobs:
   build-and-push:
@@ -21,12 +17,12 @@ jobs:
     steps:
       - name: Code checkout
         uses: actions/checkout@v4
-        
+
       - name: Docker metadata
         id: docker_meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/pelican-dev/panel
+          images: ghcr.io/${{ github.repository }}
           flavor: |
             latest=false
           tags: |
