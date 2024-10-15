@@ -50,7 +50,8 @@ RUN cp .github/docker/supervisord.conf /etc/supervisord.conf && \
 HEALTHCHECK --interval=5m --timeout=10s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/up || exit 1
 
-EXPOSE 80 443
+EXPOSE 80:2019
+EXPOSE 443
 
 VOLUME /pelican-data
 
