@@ -7,6 +7,9 @@ on:
   release:
     types:
       - published
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push:
@@ -25,7 +28,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/pelican-dev/panel
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           flavor: |
             latest=false
           tags: |
