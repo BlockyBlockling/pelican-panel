@@ -14,6 +14,9 @@ RUN yarn config set network-timeout 300000 \
 FROM php:8.3-fpm-alpine
 # FROM --platform=$TARGETOS/$TARGETARCH php:8.3-fpm-alpine
 
+ENV CADDY_ADMIN=off
+ENV ADMIN_EMAIL=USEYOUROWNEMAILHERE@example.com
+
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/www/html
@@ -26,7 +29,7 @@ RUN apk update && apk add --no-cache \
     && docker-php-ext-install bcmath gd intl zip opcache pcntl posix pdo_mysql
 
 # Copy the Caddyfile to the container
-COPY Caddyfile /etc/caddy/Caddyfile
+COPY .github/docker/Caddyfile /etc/caddy/Caddyfile
 
 # Copy the application code to the container
 COPY . .
