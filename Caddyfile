@@ -1,5 +1,4 @@
 {
-    admin off
     email {$ADMIN_EMAIL}
 }
 
