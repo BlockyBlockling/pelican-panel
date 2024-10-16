@@ -1,0 +1,16 @@
+{
+    admin off
+}
+
+{$APP_URL} {
+    root * /var/www/html/public
+    encode gzip
+
+    php_fastcgi 127.0.0.1:9000
+    file_server
+
+    tls {
+        dns cloudflare {$CLOUDFLARE_API_TOKEN}
+    }
+
+}
