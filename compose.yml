@@ -3,6 +3,7 @@ x-common:
     &panel-environment
     APP_URL: "https://localhost" # can be set to 'http://localhost' on port 80 only
     ADMIN_EMAIL: "USEYOUROWNEMAILHERE@example.com"
+    CLOUDFLARE_API_TOKEN: "" # see https://pelican.dev/docs/guides/ssl#obtaining-cloudflare-api-token
 
     APP_DEBUG: "false"
     APP_ENVIRONMENT_ONLY: "false"
