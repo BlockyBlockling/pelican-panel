@@ -2,15 +2,11 @@ name: Docker
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
   release:
     types:
       - published
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build-and-push:
     name: Build and Push
@@ -23,12 +19,12 @@ jobs:
     steps:
       - name: Code checkout
         uses: actions/checkout@v4
-        
+
       - name: Docker metadata
         id: docker_meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          images: ghcr.io/${{ github.repository }}
           flavor: |
             latest=false
           tags: |

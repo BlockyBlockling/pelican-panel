@@ -1,3 +1,8 @@
+{
+    admin off
+    email {$ADMIN_EMAIL}
+}
+
 {$APP_URL} {
     root * /var/www/html/public
     encode gzip
