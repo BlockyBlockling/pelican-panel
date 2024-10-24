@@ -3,7 +3,7 @@
     email {$ADMIN_EMAIL}
 }
 
-{$APP_URL} {
+:80 {
     root * /var/www/html/public
     encode gzip
 
