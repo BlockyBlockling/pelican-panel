@@ -1,9 +1,4 @@
-{
-    admin off
-    email {$ADMIN_EMAIL}
-}
-
-{$APP_URL} {
+http://:80 {
     root * /var/www/html/public
     encode gzip
 
