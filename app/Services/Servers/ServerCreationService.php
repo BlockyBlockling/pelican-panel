@@ -31,8 +31,7 @@ class ServerCreationService
         private FindViableNodesService $findViableNodesService,
         private ServerDeletionService $serverDeletionService,
         private VariableValidatorService $validatorService
-    ) {
-    }
+    ) {}
 
     /**
      * Create a server on the Panel and trigger a request to the Daemon to begin the server
@@ -115,7 +114,6 @@ class ServerCreationService
      */
     private function configureDeployment(array $data, DeploymentObject $deployment): Allocation
     {
-        /** @var Collection<\App\Models\Node> $nodes */
         $nodes = $this->findViableNodesService->handle(
             Arr::get($data, 'memory', 0),
             Arr::get($data, 'disk', 0),

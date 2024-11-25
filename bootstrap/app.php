@@ -5,11 +5,8 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withProviders([
-        \Prologue\Alerts\AlertsServiceProvider::class,
-    ])
+    ->withProviders()
     ->withRouting(
-        commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
@@ -54,7 +51,5 @@ return Application::configure(basePath: dirname(__DIR__))
         \Illuminate\Contracts\Console\Kernel::class => \App\Console\Kernel::class,
         \Illuminate\Contracts\Debug\ExceptionHandler::class => \App\Exceptions\Handler::class,
     ])
-    ->withExceptions(function (Exceptions $exceptions) {
-
-    })
+    ->withExceptions(function (Exceptions $exceptions) {})
     ->create();
